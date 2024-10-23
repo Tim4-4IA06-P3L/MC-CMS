@@ -5,3 +5,4 @@ Nama Kelompok :
 - William Devin S.P.
 - Indah Mahabbati
 - Rayi Ahmad
+- Maula Afiif N.S.
