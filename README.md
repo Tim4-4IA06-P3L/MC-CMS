@@ -7,3 +7,4 @@ Nama Kelompok :
 - Rayi Ahmad
 - Maula Afiif N.S.
 - Iftah Maulana
+- Ario Nugroho
