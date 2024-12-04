@@ -4,7 +4,8 @@
   "info": {
     "singularName": "our-program",
     "pluralName": "our-programs",
-    "displayName": "Our Program"
+    "displayName": "Our Program",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,12 +16,7 @@
       "type": "string",
       "required": true
     },
-    "level": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::level.level"
-    },
-    "category": {
+    "Category": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
@@ -29,23 +25,24 @@
       "type": "text"
     },
     "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Document": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "section": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::section.section"
+    "Level": {
+      "type": "string",
+      "required": true
     }
   }
 }
