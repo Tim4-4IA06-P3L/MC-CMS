@@ -4,8 +4,7 @@
   "info": {
     "singularName": "our-program",
     "pluralName": "our-programs",
-    "displayName": "Our Program",
-    "description": ""
+    "displayName": "Our Programs"
   },
   "options": {
     "draftAndPublish": false
@@ -13,6 +12,10 @@
   "pluginOptions": {},
   "attributes": {
     "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Level": {
       "type": "string",
       "required": true
     },
@@ -24,25 +27,19 @@
     "Description": {
       "type": "text"
     },
-    "Thumbnail": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "Document": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "files"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
-    "Level": {
-      "type": "string",
-      "required": true
+    "Thumbnail": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
