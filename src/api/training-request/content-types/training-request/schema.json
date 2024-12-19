@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "training_requests",
+  "info": {
+    "singularName": "training-request",
+    "pluralName": "training-requests",
+    "displayName": "Training Requests",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Company": {
+      "type": "string",
+      "required": true
+    },
+    "Position": {
+      "type": "string",
+      "required": true
+    },
+    "Office_Number": {
+      "type": "string",
+      "required": true
+    },
+    "WhatsApp_Number": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Training_Type": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

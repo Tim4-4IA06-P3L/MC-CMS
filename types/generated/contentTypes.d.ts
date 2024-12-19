@@ -432,6 +432,42 @@ export interface ApiOurProgramOurProgram extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTrainingRequestTrainingRequest
+  extends Struct.CollectionTypeSchema {
+  collectionName: "training_requests";
+  info: {
+    description: "";
+    displayName: "Training Requests";
+    pluralName: "training-requests";
+    singularName: "training-request";
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Company: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.Email & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      "oneToMany",
+      "api::training-request.training-request"
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    Office_Number: Schema.Attribute.String & Schema.Attribute.Required;
+    Position: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    Training_Type: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private;
+    WhatsApp_Number: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: "strapi_releases";
@@ -943,6 +979,7 @@ declare module "@strapi/strapi" {
       "admin::user": AdminUser;
       "api::category.category": ApiCategoryCategory;
       "api::our-program.our-program": ApiOurProgramOurProgram;
+      "api::training-request.training-request": ApiTrainingRequestTrainingRequest;
       "plugin::content-releases.release": PluginContentReleasesRelease;
       "plugin::content-releases.release-action": PluginContentReleasesReleaseAction;
       "plugin::i18n.locale": PluginI18NLocale;
