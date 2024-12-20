@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: "categories";
   info: {
+    description: "";
     displayName: "Category";
     pluralName: "categories";
     singularName: "category";
@@ -392,6 +393,10 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       "api::category.category"
     > &
       Schema.Attribute.Private;
+    programs: Schema.Attribute.Relation<
+      "oneToMany",
+      "api::our-program.our-program"
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
@@ -402,6 +407,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiOurProgramOurProgram extends Struct.CollectionTypeSchema {
   collectionName: "our_programs";
   info: {
+    description: "";
     displayName: "Our Programs";
     pluralName: "our-programs";
     singularName: "our-program";
@@ -410,7 +416,7 @@ export interface ApiOurProgramOurProgram extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    Category: Schema.Attribute.Relation<"oneToOne", "api::category.category">;
+    Category: Schema.Attribute.Relation<"manyToOne", "api::category.category">;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private;
