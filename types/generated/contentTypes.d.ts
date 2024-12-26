@@ -420,8 +420,8 @@ export interface ApiOurProgramOurProgram extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Text;
-    Document: Schema.Attribute.Media<"files">;
+    Description: Schema.Attribute.Text & Schema.Attribute.Required;
+    Document: Schema.Attribute.Media<"files"> & Schema.Attribute.Required;
     Level: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -430,7 +430,7 @@ export interface ApiOurProgramOurProgram extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Thumbnail: Schema.Attribute.Media<"images">;
+    Thumbnail: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
