@@ -9,7 +9,7 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
-    "postinstall": "./script_for_media_upload/media_upload.sh"
+    "postinstall": "cp ./script_for_media_upload/scripts/index-D57iKFts* ./node_modules/@strapi/upload/dist/_chunks/"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.5.1",
