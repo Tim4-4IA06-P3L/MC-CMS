@@ -4,8 +4,8 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
+    "deploy": "cd .. && mix assets.deploy && rm -f _build/esbuild",
     "build": "strapi build",
-    "deploy": "strapi deploy",
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
