@@ -474,6 +474,40 @@ export interface ApiTrainingRequestTrainingRequest
   };
 }
 
+export interface ApiTrainingTraining extends Struct.CollectionTypeSchema {
+  collectionName: "trainings";
+  info: {
+    displayName: "Training";
+    pluralName: "trainings";
+    singularName: "training";
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private;
+    Document: Schema.Attribute.Media<"files"> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      "oneToMany",
+      "api::training.training"
+    > &
+      Schema.Attribute.Private;
+    NewTraining: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    publishedAt: Schema.Attribute.DateTime;
+    Thumbnail: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    TrainingType: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: "strapi_releases";
@@ -986,6 +1020,7 @@ declare module "@strapi/strapi" {
       "api::category.category": ApiCategoryCategory;
       "api::our-program.our-program": ApiOurProgramOurProgram;
       "api::training-request.training-request": ApiTrainingRequestTrainingRequest;
+      "api::training.training": ApiTrainingTraining;
       "plugin::content-releases.release": PluginContentReleasesRelease;
       "plugin::content-releases.release-action": PluginContentReleasesReleaseAction;
       "plugin::i18n.locale": PluginI18NLocale;
